@@ -43,9 +43,9 @@ function generate(cwd, destinationPath, settings, cb) {
     })
   }
 
-  function writeFile(tmpPath, filename, cb) {
+  function writeFile(tmpPath, filename) {
 
-    logger.info('Superimposing ' + filename)
+    logger.info('Path : "' + filename + '"')
 
     var src = path.join(tmpPath, filename)
       , dest = path.join(destinationPath, filename)
@@ -56,7 +56,7 @@ function generate(cwd, destinationPath, settings, cb) {
         logger.debug('Is it a directory? Yes.')
         logger.info('Creating directory', filename)
         mkdirp.sync(dest)
-        return cb(null)
+        return
       }
 
       logger.debug('Is it a directory? No.')
@@ -65,7 +65,7 @@ function generate(cwd, destinationPath, settings, cb) {
         logger.debug('Does it exist already? No.')
         logger.info('Creating new file', filename)
         fs.writeFileSync(dest, fs.readFileSync(src))
-        return cb(null)
+        return
       }
 
       logger.debug('Does it exist already? Yes.')
