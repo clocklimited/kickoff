@@ -1,6 +1,11 @@
 {
   "name": "kickoff",
+  "description": "A collection of utilities for creating generators",
   "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:clocklimited/kickoff.git"
+  },
   "main": "kickoff",
   "dependencies": {
     "glob": "4.0.6",

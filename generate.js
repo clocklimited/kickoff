@@ -6,7 +6,6 @@ var mkdirp = require('mkdirp')
   , fs = require('fs')
   , template = require('lodash.template')
   , glob = require('glob')
-  , exec = require('child_process').exec
   , logga = require('logga')({ logLevel: 'trace', timeOnly: true })
 
 function generate(cwd, destinationPath, settings, cb) {
