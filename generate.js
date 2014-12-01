@@ -6,7 +6,7 @@ var mkdirp = require('mkdirp')
   , fs = require('fs')
   , template = require('lodash.template')
   , glob = require('glob')
-  , logga = require('logga')({ logLevel: 'trace', timeOnly: true })
+  , logga = require('logga')({ logLevel: process.env.LOG_LEVEL || 'info', timeOnly: true })
 
 function generate(cwd, destinationPath, settings, cb) {
 
@@ -44,7 +44,7 @@ function generate(cwd, destinationPath, settings, cb) {
 
   function writeFile(tmpPath, filename) {
 
-    logger.info('Path : "' + filename + '"')
+    logger.debug('Path: "' + filename + '"')
 
     var src = path.join(tmpPath, filename)
       , dest = path.join(destinationPath, filename)
