@@ -11,7 +11,7 @@ var mkdirp = require('mkdirp')
 function generate(cwd, destinationPath, settings, cb) {
 
   var logger = logga.setContext(path.basename(cwd))
-
+  this.logger = logger
   logger.info('Destination', destinationPath)
 
   tmp.dir({ prefix: 'generator-' }, function (err, tmpPath) {
