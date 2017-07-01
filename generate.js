@@ -28,6 +28,7 @@ function generate(cwd, destinationPath, settings, cb) {
     glob.sync('**/*', { cwd: cwd + '/source', dot: true }).forEach(function (filename) {
       var src = path.join(cwd + '/source', filename)
         , dest = path.join(tmpPath, filename)
+      logger.debug('Write File Path: "' + filename + '"')
       if (fs.statSync(src).isDirectory()) return mkdirp.sync(dest)
       fs.writeFileSync(dest, fs.readFileSync(src))
     })
@@ -37,6 +38,7 @@ function generate(cwd, destinationPath, settings, cb) {
     glob.sync('**/*', { cwd: cwd + '/templates', dot: true }).forEach(function (filename) {
       var dest = path.join(tmpPath, filename.replace(/\.tpl$/, ''))
         , src = path.join(cwd + '/templates', filename)
+      logger.debug('Write Template File Path: "' + filename + '"')
       if (fs.statSync(src).isDirectory()) return mkdirp.sync(dest)
       fs.writeFileSync(dest, template(fs.readFileSync(src))(settings))
     })
