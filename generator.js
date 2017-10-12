@@ -12,7 +12,7 @@ Generator.prototype.createConfig = function (userInput) {
 }
 
 Generator.prototype.generate = function (dest, cb) {
-  inquirer.prompt(this.prompts, function (userInput) {
+  inquirer.prompt(this.prompts).then(function (userInput) {
     this._generate(dest, this.createConfig(userInput), cb)
   }.bind(this))
 }
