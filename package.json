@@ -9,10 +9,10 @@
   "main": "kickoff",
   "dependencies": {
     "glob": "^7.1.2",
-    "inquirer": "^3.3.0",
+    "inquirer": "^6.4.1",
     "lodash.template": "^4.4.0",
     "logga": "^1.1.0",
     "mkdirp": "^0.5.1",
-    "tmp": "0.0.33"
+    "tmp": "0.1.0"
   }
 }
